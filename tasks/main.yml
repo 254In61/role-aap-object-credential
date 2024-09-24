@@ -1,0 +1,4 @@
+---
+- name: Import credential tasks
+  ansible.builtin.import_tasks: credential.yml
+  when: credential | bool
