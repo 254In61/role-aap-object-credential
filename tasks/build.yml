@@ -1,6 +1,6 @@
 ---
 # Build credential
-- name: Build Container Registry credential
+- name: "Build Container Registry credential - {{ in_list[0] }}"
   ansible.controller.credential:
     name: "{{ in_list[0] }}"
     organization: "{{ organization }}"
@@ -14,7 +14,7 @@
     validate_certs: false
   when: in_list[1] == 'Container Registry'
 
-- name: Build other types credential
+- name: "Build credential - {{ in_list[0] }}"
   ansible.controller.credential:
     name: "{{ in_list[0] }}"
     organization: "{{ organization }}"
