@@ -1,0 +1,24 @@
+---
+organization: my-organization
+
+description: it is an AAP credential
+
+
+cisco_creds: 
+  - "{{ cisco_creds_name }}"
+  - Machine
+  - "{{ cisco_username }}"
+  - "{{ cisco_password }}"
+ 
+git_credential: 
+  - "{{ git_svc_acc_name }}"
+  - Source Control
+  - "{{ git_username }}"
+  - "{{ git_token }}"
+
+redhat_quay_io_credential:
+  - "{{ redhat_quay_creds_name }}"
+  - Container Registry
+  - "{{ redhat_quay_username }}"
+  - "{{ redhat_quay_token }}"
+  - "{{ redhat_quay_host }}"
