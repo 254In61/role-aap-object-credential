@@ -10,18 +10,9 @@ Step 1: Install the role in your environment.
    - You could have roles/requirements.yml if running on AAP.
    - Or simple install on your environment.
 
-Step 2: Define your variables in the structure below
+Step 2: Define your variables. See example-vars.yml
 
-- organization
-- description
-- list_of_credential_field
-    - name of credential
-    - credential type
-    - username
-    - password
-    - host
-
-Step 3: Call the role from your playbook.
+Step 3: Call the role from your playbook. See example-playbook.yml
 
 # Example
 ## variables
