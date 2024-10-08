@@ -4,21 +4,21 @@ organization: my-organization
 description: it is an AAP credential
 
 
-cisco_creds: 
-  - "{{ cisco_creds_name }}"
-  - Machine
-  - "{{ cisco_username }}"
-  - "{{ cisco_password }}"
- 
-git_credential: 
-  - "{{ git_svc_acc_name }}"
-  - Source Control
-  - "{{ git_username }}"
-  - "{{ git_token }}"
+# Ideally, you shouldn't be building credentials here!
+# 2nd-best option is to click-ops and save credentials in your AAP
+# and use the credentials in the rest of the playbook tasks.
 
-redhat_quay_io_credential:
-  - "{{ redhat_quay_creds_name }}"
-  - Container Registry
-  - "{{ redhat_quay_username }}"
-  - "{{ redhat_quay_token }}"
-  - "{{ redhat_quay_host }}"
+# best option is to have your credentials in a vault and AAP pulls from there.
+
+staging_credentials:
+  cisco:
+    credential_name: appc-network-machine-cisco-staging
+    username: "{{ lookup('env', 'CISCO_USN') }}"
+    password: "{{ lookup('env', 'CISCO_PWD') }}"
+    credential_type: Machine
+  
+  junos:
+    credential_name: appc-network-machine-junos-staging
+    username: "{{ lookup('env', 'JUNOS_USN') }}"
+    password: "{{ lookup('env', 'JUNOS_PWD') }}"
+    credential_type: Machine

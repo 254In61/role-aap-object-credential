@@ -14,16 +14,15 @@
     - name: Import role-aap-object-credential
       ansible.builtin.include_role:
         name: role-aap-object-credential
-
       vars:
         build: true
-        description: "{{ common_description }}"
+        name: "{{ item.value.credential_name }}"
         organization: "{{ organization_name }}"
-        in_list: "{{ item }}"
-
-      loop:
-        - "{{ cisco_creds }}"
-        - "{{ git_credential }}"
-        - "{{ redhat_quay_io_credential }}"
+        credential_type: "{{ item.value.credential_type }}"
+        description: "{{ common_description }}"
+        username: "{{ item.value.username }}"
+        password: "{{ item.value.password }}"
+        # host: "{{ host }}" # If defining Container Registry creds
+      loop: "{{ lookup('dict', staging_credentials) }}" 
     !
     !
