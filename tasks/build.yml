@@ -11,6 +11,9 @@
       username: "{{ username }}"
       password: "{{ password }}"
       host: "{{ host }}"
+    controller_host: "{{ controller_host }}"
+    controller_username: "{{ controller_username }}"
+    controller_password: "{{ controller_password }}"
     validate_certs: false
   when: credential_type == 'Container Registry'
   ignore_errors: true
@@ -26,6 +29,9 @@
       username: "{{ username }}"
       password: "{{ password }}"
       # host: "{{ in_list[4] }}"
+    controller_host: "{{ controller_host }}"
+    controller_username: "{{ controller_username }}"
+    controller_password: "{{ controller_password }}"
     validate_certs: false
   when: credential_type != 'Container Registry'
   ignore_errors: true
